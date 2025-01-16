@@ -21,7 +21,7 @@ const Home = () => {
            <HomeCardCorousel data={womens_saree} sectionName={"Women's Saree"}/>
            <HomeCardCorousel data={womens_dress} sectionName={"Women's Dress"}/>
         </div>
-        <Footer/>
+        
     </div>
   );
 }
