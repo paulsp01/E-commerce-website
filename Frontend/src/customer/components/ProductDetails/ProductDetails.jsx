@@ -252,10 +252,7 @@ const ProductDetails = () => {
       </div>
 
       </section>
-      <div className='pb-20'>
-      <Review/>
-      </div>
-      <SimilarProducts/>
+     
 
      
 
