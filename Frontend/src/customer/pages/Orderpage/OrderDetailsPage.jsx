@@ -1,9 +1,9 @@
 import React from 'react'
-import Order from '../../components/Order/Order'
+import OrderDetails from '../../components/Order/OrderDetails'
 
 const OrderDetailsPage = () => {
   return (
-    <div><Order/></div>
+    <div><OrderDetails/></div>
   )
 }
 

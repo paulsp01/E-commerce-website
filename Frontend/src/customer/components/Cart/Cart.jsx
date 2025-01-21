@@ -1,9 +1,14 @@
 import React from 'react'
 import CartItem from '../CartItem/CartItem'
 import Divider from '@mui/material/Divider'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Cart = () => {
+const navigate=useNavigate()
+
+
+
   return (
     <div className='p-5'>
       <div className='lg:grid grid-cols-3 lg:px-16 relative'>
@@ -42,8 +47,8 @@ const Cart = () => {
 
 
        </div>
-       <div className='w-full px-5 bg-purple-700 flex items-center justify-center p-2 my-6  rounded-md cursor-pointer '>
-        <button className='text-white font-medium'>Check Out</button>
+       <div >
+        <Link to='/checkout/?step=2' className='text-white font-medium w-full px-5 bg-purple-700 flex items-center justify-center p-2 my-6  rounded-md cursor-pointer'>Check Out</Link>
        </div>
        </div>
 

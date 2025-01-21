@@ -7,6 +7,7 @@ import { Radio, RadioGroup } from '@headlessui/react'
 import Rating from '@mui/material/Rating';
 import Review from './Review'
 import SimilarProducts from './SimilarProducts'
+import { useNavigate } from 'react-router-dom'
 
 
 const product = {
@@ -68,6 +69,14 @@ function classNames(...classes) {
 const ProductDetails = () => {
     const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const navigate=useNavigate()
+
+  const handleAddToCart=()=>{
+  navigate('/cart')
+  }
+
+
+
   return (
     <div className="bg-white">
     <div className="pt-6">
@@ -209,10 +218,10 @@ const ProductDetails = () => {
             </div>
 
             <button
-              type="submit"
+              onClick={handleAddToCart}
               className="mt-10 flex w-full lg:w-2/5 sm:w-1/3  items-center justify-center rounded-md border border-transparent bg-purple-600 px-8 py-3 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
             >
-              Add to bag
+              Add to cart
             </button>
           </form>
         </div>
