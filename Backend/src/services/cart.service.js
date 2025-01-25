@@ -19,7 +19,7 @@ module.exports.findUserCart=async (user)=>{
   try {
 
     let cart=await cartModel.findOne({user})
-    let cartItem=await cartItemModel.findOne({cart:cart._id}).populate('product')
+    let cartItem=await cartItemModel.find({cart:cart._id}).populate('product')
     cart.cartItem=cartItem
     let totalPrice=0;
     let totalDiscountedPrice=0;
@@ -60,8 +60,8 @@ module.exports.addCartItem=async (userId,req)=>{
 
       })
 
-      const createdCartItem=await cartItem.save()
-      cart.cartItem.push(createdCartItem)
+      //const createdCartItem=await cartItem.save()
+      cart.cartItem.push(cartItem)
       await cart.save()
       return "item added to cart"
     }

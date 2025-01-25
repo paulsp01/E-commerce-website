@@ -3,13 +3,13 @@ const cartItemModel = require("../models/cartItem.model");
 
 module.exports.updateCartItem = async (userId, cartItemId, cartItemData) => {
     try {
-        const item = await cartItemModel.findById(cartItemId);
+        const item = await cartItemModel.findById(cartItemId).populate('product');
 
         if (!item) {
             throw new Error("cart item is not found", cartItemId);
         }
 
-        const user = await userService.findUserById(userId);
+        const user = await userService.findUserById({ userId });
         if (!user) {
             throw new Error("user is not found", userId);
         }
@@ -30,8 +30,15 @@ module.exports.updateCartItem = async (userId, cartItemId, cartItemData) => {
 
 module.exports.removeCartItem = async (userId, cartItemId) => {
     try {
-        const cartItem = await cartItemModel.findById(cartItemId);
-        const user = await userService.findUserById(userId);
+       
+        const cartItem = await await cartItemModel.findById(cartItemId);
+        
+        const user = await userService.findUserById({ userId });
+       
+
+        if (!cartItem) {
+            throw new Error("cart item is not found", cartItemId);
+        }
 
         if (user._id.toString() === cartItem.userId.toString()) {
             await cartItemModel.findByIdAndDelete(cartItemId);

@@ -5,11 +5,11 @@ const cartSchema=new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'users'
     },
-    cartItem:{
+    cartItem:[{
         type: mongoose.Schema.Types.ObjectId,
         ref:'cartitems'
 
-    },
+    }],
     totalPrice:{
         type:Number,
         required:true,

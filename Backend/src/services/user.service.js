@@ -37,6 +37,7 @@ module.exports.findUserById=async ({userId})=>{
     const user=await userModel.findById(userId)
    
     //.populate('address')
+ 
     if(!user){
      throw new Error("user not find",userId)
     }

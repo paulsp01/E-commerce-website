@@ -5,6 +5,21 @@ const connectDB=require("./config/mongoose")
 const app = express()
 const authRouter=require("./routes/auth.route")
 const userRouter=require("./routes/user.route")
+const adminRouter=require("./routes/admin.route")
+const adminProductRouter=require("./routes/adminProduct.route")
+const cartRouter=require("./routes/cart.route")
+const cartItemRouter=require("./routes/cartItem.route")
+const orderRouter=require("./routes/order.route")
+const productRouter=require("./routes/product.route")
+const ratingRouter=require("./routes/rating.route")
+const reviewRouter=require("./routes/review.route")
+
+
+
+
+
+
+
 
 
 connectDB()
@@ -17,6 +32,14 @@ app.get("/", (req, res)=>{
 
 app.use('/auth',authRouter)
 app.use('/user',userRouter)
+app.use("/admin/order",adminRouter)
+app.use("/admin/product",adminProductRouter)
+app.use("/cart",cartRouter)
+app.use("/cart-item",cartItemRouter)
+app.use("/order",orderRouter)
+app.use("/product",productRouter)
+app.use("/rating",ratingRouter)
+app.use("/review",reviewRouter)
 
 
 module.exports = app
