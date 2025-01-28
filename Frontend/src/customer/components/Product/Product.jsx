@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from './ProductCard'
 import { useState } from 'react'
 import {
@@ -14,12 +14,16 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/react'
+import Pagination from '@mui/material/Pagination';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../Data/Mens_kurta'
 import {filters,SingleFilter} from "./FilterData"
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import { useLocation,useNavigate } from 'react-router-dom'
+import { useLocation,useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { findProducts } from '../../../State/Product/Action'
+
 
  
 const sortOptions = [
@@ -39,12 +43,27 @@ const Product = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const location=useLocation()
   const navigate = useNavigate()
+  const params=useParams()
+  const dispatch=useDispatch()
+  const {product}=useSelector(store=>store)
+
+
+  const decodedQueryString=decodeURIComponent(location.search)
+  const searchPrams=new URLSearchParams(decodedQueryString)
+  const colorValue=searchPrams.get("color")
+  const sizeValue=searchPrams.get("size")
+  const priceValue=searchPrams.get("price")
+  const discount=searchPrams.get("discount")
+  const stock=searchPrams.get("stock")
+  const sortValue=searchPrams.get("sort")
+  const pageNumber=searchPrams.get("page")||1;
+
 
 const handleFilter = (value, sectionId) => {
   const searchParams = new URLSearchParams(location.search);
 
-  if (sectionId === 'stock') {
-    // For stock, ensure only one value is selected at a time
+  if (sectionId === 'stock' || sectionId === 'price' || sectionId === 'discount') {
+    // For stock, price, and discount, ensure only one value is selected at a time
     searchParams.set(sectionId, value);
   } else {
     let filterValue = searchParams.get(sectionId)?.split(",") || [];
@@ -65,7 +84,36 @@ const handleFilter = (value, sectionId) => {
   navigate({ search: searchParams.toString() });
 };
 
+useEffect(() => {
+  const [minPrice,maxPrice]=priceValue===null?[0,10000]:priceValue.split('-').map(Number);
 
+
+  const data={
+    category:params.levelThree,
+    colors:colorValue || [],
+    sizes:sizeValue || [],
+    minPrice,
+    maxPrice,
+    minDiscount:discount || 0,
+    sort:sortValue || "price_low",
+    pageNumber:pageNumber -1,
+    pageSize:12,
+    stock:stock
+  }
+  
+  dispatch(findProducts(data))
+
+},[params.levelThree,
+  colorValue,
+  sizeValue,
+  priceValue,
+  discount,
+  sortValue,
+  pageNumber,
+  stock
+
+],
+)
 
 
   return (
@@ -190,9 +238,8 @@ const handleFilter = (value, sectionId) => {
                                  onChange={()=>handleFilter(option.value,section.id)}
                                   defaultValue={option.value}
                                   id={`filter-mobile-${section.id}-${optionIdx}`}
-                                  name={section.id === 'stock' ? 'stock' : `${section.id}[]`}
-                                  
-                                  type={section.id === 'stock' ? 'radio' : 'checkbox'}
+                                  name={section.id}
+                                  type="radio"
                                   className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                                 />
                                 <svg
@@ -389,8 +436,8 @@ const handleFilter = (value, sectionId) => {
                                   defaultValue={option.value}
                                   defaultChecked={option.checked}
                                   id={`filter-${section.id}-${optionIdx}`}
-                                  name={section.id === 'stock' ? 'stock' : `${section.id}[]`}
-                                  type={section.id === 'stock' ? 'radio' : 'checkbox'}
+                                  name={section.id}
+                                  type="radio"
                                   
                                   className="col-start-1 row-start-1 appearance-none rounded border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                                 />
@@ -433,7 +480,7 @@ const handleFilter = (value, sectionId) => {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className='flex flex-wrap justify-center gap-3 py-5'>
-                  {mens_kurta.map(item => (
+                  {product.products?.content.map((item) => (
                     <ProductCard 
                     key={item.id}
                     image={item.imageUrl}
@@ -448,6 +495,13 @@ const handleFilter = (value, sectionId) => {
                 </div>
 
               </div>
+            </div>
+          </section>
+
+
+          <section className='w-full px-[3.6rem]'>
+            <div className='px-4 py-4 flex justify-center'>
+            <Pagination count={product.products?.totalPages} color="secondary" onChange={handlePagination} />
             </div>
           </section>
         </main>

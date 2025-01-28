@@ -23,7 +23,7 @@ export const filters = [
         { value: 'brown', label: 'Brown', checked: false },
         { value: 'green', label: 'Green', checked: false },
         { value: 'purple', label: 'Purple', checked: false },
-        { value: 'yellow', label: 'Purple', checked: false },
+        { value: 'yellow', label: 'Yellow', checked: false },
       ],
     },
     
