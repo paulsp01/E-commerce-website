@@ -3,11 +3,17 @@ import AddressCard from "../AddressCard/AddressCard";
 import { Grid, TextField, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Textarea } from "@material-tailwind/react";
+import { useDispatch } from "react-redux";
+import { createOrder } from "../../../State/Order/Action";
+import { useNavigate } from "react-router-dom";
 
 const DelivaerAddressForm = () => {
+const dispatch=useDispatch()
+const navigate=useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("address");
+    
     const data = new FormData(e.currentTarget);
    const address={
         firstname:data.get('firstname'),
@@ -19,7 +25,10 @@ const DelivaerAddressForm = () => {
         phone:data.get("phone"),
 
    }
-    console.log(address);
+   const orderData={ address, navigate }; // Correctly format orderData with navigate
+
+   dispatch(createOrder(orderData))
+    console.log(orderData);
   };
   return (
     <div className="mt-20">

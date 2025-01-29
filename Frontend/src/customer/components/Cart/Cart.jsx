@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartItem from '../CartItem/CartItem'
 import Divider from '@mui/material/Divider'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCart } from '../../../State/Cart/Action'
 
 
 const Cart = () => {
 const navigate=useNavigate()
+const dispatch=useDispatch()
+const {cart}=useSelector(store=>store)
+
+
+
+useEffect(() => {
+  dispatch(getCart())
+},[cart.updateCartItem,cart.deleteCartItem])
 
 
 
@@ -13,7 +23,7 @@ const navigate=useNavigate()
     <div className='p-5'>
       <div className='lg:grid grid-cols-3 lg:px-16 relative'>
       <div className='col-span-2'>
-     {[1,1,1,1].map((item)=><CartItem/>) }
+     {cart.cart?.cartItem.map((item, index)=><CartItem key={index} item={item}/>) }
         
       </div>
 
@@ -24,13 +34,13 @@ const navigate=useNavigate()
        <hr/>
        <div className='space-y-3  '>
         <div className='flex justify-between pt-2 text-black font-medium opacity-90 text-base px-2  '>
-          <span>Price(3 items)</span>
-          <span>₹1499</span>
+          <span>Price</span>
+          <span>₹{cart.cart?.totalPrice}</span>
 
         </div>
         <div className='flex justify-between  text-black font-medium opacity-90 text-base px-2'>
           <span>Discount</span>
-          <span>₹1099</span>
+          <span>-₹{cart.cart?.discount}</span>
 
         </div>
         <div className='flex justify-between  text-black font-medium opacity-90 text-base px-2 '>
@@ -41,7 +51,7 @@ const navigate=useNavigate()
 
         <div className='flex justify-between pt-3 pb-3 text-black font-bold text-lg'>
           <span>Total Amount</span>
-          <span>₹499</span>
+          <span>₹{cart.cart?.totalDiscountedPrice}</span>
 
         </div>
 

@@ -45,7 +45,7 @@ const Product = () => {
   const navigate = useNavigate()
   const params=useParams()
   const dispatch=useDispatch()
-  const {product}=useSelector(store=>store)
+  const {products}=useSelector(store=>store)
 
 
   const decodedQueryString=decodeURIComponent(location.search)
@@ -57,6 +57,16 @@ const Product = () => {
   const stock=searchPrams.get("stock")
   const sortValue=searchPrams.get("sort")
   const pageNumber=searchPrams.get("page")||1;
+
+
+
+  const handlePagination=(event,value)=>{
+    const searchParams=new URLSearchParams(location.search)
+    searchParams.set("page",value)
+    const query=searchParams.toString()
+    console.log("query",query,"value")
+    navigate({search:`?${query}`})
+  }
 
 
 const handleFilter = (value, sectionId) => {
@@ -96,8 +106,8 @@ useEffect(() => {
     maxPrice,
     minDiscount:discount || 0,
     sort:sortValue || "price_low",
-    pageNumber:pageNumber -1,
-    pageSize:12,
+    pageNumber:pageNumber ,
+    pageSize:6,
     stock:stock
   }
   
@@ -480,15 +490,10 @@ useEffect(() => {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className='flex flex-wrap justify-center gap-3 py-5'>
-                  {product.products?.content.map((item) => (
+                  {products.products?.content.map((item) => (
                     <ProductCard 
                     key={item.id}
-                    image={item.imageUrl}
-                    brand={item.brand}
-                    title={item.title}
-                    discountedPrice={item.discountedPrice}
-                    price={item.price}
-                    discountPersent={item.discountPersent}
+                    product={item}
 
                   />))}
 
@@ -501,7 +506,7 @@ useEffect(() => {
 
           <section className='w-full px-[3.6rem]'>
             <div className='px-4 py-4 flex justify-center'>
-            <Pagination count={product.products?.totalPages} color="secondary" onChange={handlePagination} />
+            <Pagination count={products.products?.totalPages} color="secondary" onChange={handlePagination} />
             </div>
           </section>
         </main>
