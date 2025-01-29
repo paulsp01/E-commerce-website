@@ -91,10 +91,12 @@ module.exports.findProductById=async (productId)=>{
 
 module.exports.getAllProducts = async (reqQuery) => {
     let { category, pageNumber, pageSize,color,size,minPrice,maxPrice,minDiscount,stock,sort } = reqQuery;
+    
+    pageNumber = parseInt(pageNumber, 6); // Convert to number
+    
    
-    pageNumber = reqQuery.pageNumber ? Math.max(1, parseInt(reqQuery.pageNumber)) : 1;
-    pageSize = reqQuery.pageSize ? parseInt(reqQuery.pageSize) : 10;
-  
+    pageSize = reqQuery.pageSize ? parseInt(reqQuery.pageSize) : 6 ;
+   
     let query = productModel.find().populate("category");
   
     if (category) {

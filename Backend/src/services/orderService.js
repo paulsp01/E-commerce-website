@@ -5,48 +5,71 @@ const orderModel = require("../models/order.model");
 
 module.exports.createOrder = async (user, shippingAddress) => {
   let address;
-
-  if (shippingAddress._id) {
-    let existAddress = await addressModel.findById(shippingAddress._id);
-    address = existAddress;
-  } else {
-    address = new addressModel(shippingAddress);
-    address.user = user;
-    await address.save();
-    user.address.push(address);
-    await user.save();
-  }
-
-  const cart = await cartService.findUserCart(user._id);
-
-  const orderItems = [];
-
-  for (let item of cart.cartItem) {
-    const orderItem = await orderItemModel.create({
-      price: item.price,
-      product: item.product,
-      quantity: item.quantity,
-      size: item.size,
-      userId: item.userId,
-      discountedPrice: item.discountedPrice,
-    });
-
-    // const createdOrderItem=await orderItem.save()
-    orderItems.push(orderItem);
-  }
-
-  const createdOrder = await orderModel.create({
-    user,
-    orderItems,
-    totalPrice: cart.totalPrice,
-
-    totalDiscountedPrice: cart.totalDiscountedPrice,
-    discount: cart.discount,
-    totalItem: cart.totalItem,
-    shippingAddress: address,
-  });
  
-  return createdOrder;
+
+  try {
+    let existingAddress = await addressModel
+      .findOne({
+        user: user._id, // Ensure the address belongs to the current user
+        firstname: shippingAddress.firstname,
+        lastname: shippingAddress.lastname,
+        address: shippingAddress.address,
+        city: shippingAddress.city,
+        state: shippingAddress.state,
+        zip: shippingAddress.zip,
+        phone: shippingAddress.phone,
+      })
+      .lean();
+
+    if (existingAddress) {
+     
+      address = existingAddress;
+    } else {
+      const newAdd = new addressModel(shippingAddress);
+      newAdd.user = user;
+      await newAdd.save();
+      
+      address = newAdd;
+      user.address.push(newAdd._id);
+      await user.save();
+    }
+   
+    const cart = await cartService.findUserCart(user._id);
+    
+    const orderItems = [];
+
+    for (let item of cart.cartItem) {
+     
+      const orderItem = await orderItemModel.create({
+        price: item.price,
+        product: item.product,
+        quantity: item.quantity,
+        size: item.size,
+        userId: item.userId,
+        discountedPrice: item.discountedPrice,
+      });
+
+     
+      orderItems.push(orderItem);
+    }
+   
+
+    const createdOrder = await orderModel.create({
+      user,
+      orderItems,
+      totalPrice: cart.totalPrice,
+
+      totalDiscountedPrice: cart.totalDiscountedPrice,
+      discount: cart.discount,
+      totalItem: cart.totalItem,
+      shippingAddress: address,
+    });
+    
+    return createdOrder;
+  } catch (error) {
+    console.error("Error in createOrder:", error);
+    throw new Error(error.message);
+  }
 };
 
 module.exports.placeOrder = async (orderId) => {
@@ -100,7 +123,8 @@ module.exports.getAllOrders = async () => {
   try {
     return await orderModel
       .find()
-      .populate({ path: "orderItems", populate: { path: "product" } }).lean();
+      .populate({ path: "orderItems", populate: { path: "product" } })
+      .lean();
   } catch (error) {
     throw new Error(error.message);
   }

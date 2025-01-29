@@ -31,10 +31,12 @@ module.exports.findUserCart=async (user)=>{
       totalItem+=cartItem.quantity
     }
     cart.totalPrice=totalPrice
+    cart.totalDiscountedPrice=totalDiscountedPrice
     cart.discount=totalPrice-totalDiscountedPrice
     cart.totalItem=totalItem
-
-    return cart
+  
+     await cart.save()
+     return cart
     
   } catch (error) {
     throw new Error(error.message)

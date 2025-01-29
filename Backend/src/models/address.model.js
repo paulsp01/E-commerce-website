@@ -12,7 +12,7 @@ const addressSchema = new mongoose.Schema({
     min: [2, "firstname must be atleast 3 charecters"],
   },
 
-  streetAddress: {
+  address: {
     type: String,
     required: true,
   },
@@ -25,12 +25,12 @@ const addressSchema = new mongoose.Schema({
     required: true,
   },
 
-  zipcode: {
+  zip: {
     type: Number,
     required: true,
   },
-  mobile:{
-    type: String,
+  phone:{
+    type: Number,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

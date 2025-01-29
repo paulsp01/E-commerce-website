@@ -3,8 +3,12 @@ const orderService=require("../services/orderService")
 
 module.exports.createOrder=async (req,res)=>{
     try {
-      const user=await req.user
+      const user= req.user
+      
+      
+     
         const createdOrder=await orderService.createOrder(user,req.body)
+        console.log("Created Order:", createdOrder);
         return res.status(200).send(createdOrder)
         
     } catch (error) {
@@ -27,9 +31,9 @@ module.exports.findOrderById=async (req,res)=>{
 module.exports.orderHistory=async (req,res)=>{
    
     try {
-        console.log("User:", req.user);
+      
         const user=await req.user
-        console.log("user",req.user)
+       
         const orderHistory=await orderService.usersOrderHistory(user._id)
         return res.status(200).send(orderHistory)
         
