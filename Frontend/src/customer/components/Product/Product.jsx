@@ -46,6 +46,7 @@ const Product = () => {
   const params=useParams()
   const dispatch=useDispatch()
   const {products}=useSelector(store=>store)
+  
 
 
   const decodedQueryString=decodeURIComponent(location.search)
@@ -64,7 +65,7 @@ const Product = () => {
     const searchParams=new URLSearchParams(location.search)
     searchParams.set("page",value)
     const query=searchParams.toString()
-    console.log("query",query,"value")
+   
     navigate({search:`?${query}`})
   }
 

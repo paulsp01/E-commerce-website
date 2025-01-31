@@ -34,7 +34,7 @@ const SignUpForm = () => {
         }
         dispatch(register(userData))
 
-        console.log("userdata", userData)
+       
     };
     return (
         <div>

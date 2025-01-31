@@ -74,12 +74,11 @@ const ProductDetails = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((store) => store);
-  console.log("params",params.productId,"size",selectedSize.name)
-
+  
   const handleAddToCart = (e) => {
     e.preventDefault()
     const data={productId:params.productId,size:selectedSize.name}
-    console.log("data",data)
+   
     dispatch(addItemToCart(data))
     
     

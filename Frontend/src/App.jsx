@@ -9,6 +9,7 @@ import CartPage from './customer/pages/CartPage/CartPage'
 import CheckOutPage from './customer/pages/CheckoutPage/CheckOutPage'
 import OrderPage from './customer/pages/Orderpage/OrderPage'
 import OrderDetailsPage from './customer/pages/Orderpage/OrderDetailsPage'
+import PaymentSucessPage from './customer/pages/Paymentpage/PaymentSucessPage'
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
       <Route path='/account/order/:orderId' element={<OrderDetailsPage/>}/>
       <Route path='/login' element={<Home/>}/>
       <Route path='/register' element={<Home/>}/>
+      <Route path='/payment/:orderId' element={<PaymentSucessPage/>}/>
      
       
       </Routes>

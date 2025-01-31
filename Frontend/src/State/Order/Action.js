@@ -2,7 +2,7 @@ import { CREATE_ORDER_FAILURE, CREATE_ORDER_REQUEST, CREATE_ORDER_SUCCESS, GET_O
 import { api } from "../../config/ApiConfig";
 
 export const createOrder = (reqData) => async (dispatch) => {
-  console.log("reqData",reqData);
+
   dispatch({ type: CREATE_ORDER_REQUEST });
   try {
     const { data } = await api.post("/order", reqData.address);

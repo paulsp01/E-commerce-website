@@ -6,10 +6,16 @@ import { Textarea } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { createOrder } from "../../../State/Order/Action";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const DelivaerAddressForm = () => {
 const dispatch=useDispatch()
 const navigate=useNavigate()
+const {auth}=useSelector(store=>store)
+
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +34,7 @@ const navigate=useNavigate()
    const orderData={ address, navigate }; // Correctly format orderData with navigate
 
    dispatch(createOrder(orderData))
-    console.log(orderData);
+    
   };
   return (
     <div className="mt-20">
@@ -40,7 +46,7 @@ const navigate=useNavigate()
           className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll"
         >
           <div className="p-2 py-4 border-b cursor-pointer">
-            <AddressCard />
+           {auth.user?.address?.map((item)=> <AddressCard address={item}/> )}
             <button className="mt-2 bg-[#7a24d1] text-white p-2 px-4  rounded-md">
               Deliver Here
             </button>

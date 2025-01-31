@@ -26,7 +26,7 @@ try {
     if(user.jwt){
         localStorage.setItem("jwt",user.jwt)
     }
-    console.log("user register",user)
+  
     dispatch(registerSuccess(user.jwt))
 } catch (error) {
     dispatch(registerFailure(error.message))
@@ -42,7 +42,7 @@ try {
     if(user.jwt){
         localStorage.setItem("jwt",user.jwt)
     }
-    console.log("user login",user)
+   
     dispatch(loginSuccess(user.jwt))
 } catch (error) {
     dispatch(loginFailure(error.message))
@@ -64,7 +64,7 @@ try {
     if(user.jwt){
         localStorage.setItem("jwt",user.jwt)
     }
-    console.log("user profile",user)
+  
    
     dispatch(getUserSuccess(user))
 } catch (error) {

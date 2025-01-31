@@ -14,8 +14,9 @@ import AuthModal from "../../Auth/AuthModel";
 import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
 import { getUser, logout } from "../../../State/Auth/Action";
-//import { getCart } from "../../../Redux/Customers/Cart/Action";
+
 import TextField from "@mui/material/TextField";
+import { getCart } from "../../../State/Cart/Action";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -25,7 +26,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { auth } = useSelector((store) => store);
+  const { auth ,cart} = useSelector((store) => store);
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
@@ -35,7 +36,7 @@ export default function Navbar() {
   useEffect(() => {
     if (jwt) {
       dispatch(getUser(jwt));
-      //dispatch(getCart(jwt));
+      dispatch(getCart(jwt));
     }
   }, [jwt,auth.jwt]);
 
@@ -478,7 +479,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Cart */}
-                {/* <div className="ml-4 flow-root lg:ml-6">
+                <div className="ml-4 flow-root lg:ml-6">
                   <Button
                     onClick={() => navigate("/cart")}
                     className="group -m-2 flex items-center p-2"
@@ -492,7 +493,7 @@ export default function Navbar() {
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Button>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>

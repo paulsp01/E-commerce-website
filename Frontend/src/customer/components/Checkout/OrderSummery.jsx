@@ -6,13 +6,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getOrderById } from '../../../State/Order/Action'
 import { useLocation } from 'react-router-dom'
+import { createPayment } from '../../../State/Payment/Action'
 
 const OrderSummery = () => {
   const dispatch=useDispatch()
   const location=useLocation()
   const {order}=useSelector(store=>store)
+ 
   const searchParams=new URLSearchParams(location.search)
   const orderId=searchParams.get("order_id")
+
+  const handleCheckout=(e)=>{
+    e.preventDefault()
+    dispatch(createPayment(orderId))
+  }
 
   useEffect(()=>{
    dispatch(getOrderById(orderId))
@@ -56,7 +63,7 @@ const OrderSummery = () => {
                 </div>
               </div>
               
-              <button className='w-full bg-purple-700 text-white font-medium py-3 px-4 rounded-md hover:bg-purple-800 transition-colors mt-4'>
+              <button onClick={handleCheckout} className='w-full bg-purple-700 text-white font-medium py-3 px-4 rounded-md hover:bg-purple-800 transition-colors mt-4'>
                 Check Out
               </button>
             </div>
