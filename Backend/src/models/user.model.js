@@ -30,8 +30,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: "CUSTOMER",
   },
-  mobile: {
-    type: Number,
+  phone: {
+    type: String,
+   
+   
     
   },
   address: [

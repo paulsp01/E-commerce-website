@@ -13,6 +13,7 @@ const orderRouter=require("./routes/order.route")
 const productRouter=require("./routes/product.route")
 const ratingRouter=require("./routes/rating.route")
 const reviewRouter=require("./routes/review.route")
+const paymentRouter=require("./routes/payment.route")
 
 
 
@@ -40,6 +41,7 @@ app.use("/order",orderRouter)
 app.use("/product",productRouter)
 app.use("/rating",ratingRouter)
 app.use("/review",reviewRouter)
+app.use("/payment",paymentRouter)
 
 
 module.exports = app

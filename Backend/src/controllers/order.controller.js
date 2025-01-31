@@ -8,7 +8,7 @@ module.exports.createOrder=async (req,res)=>{
       
      
         const createdOrder=await orderService.createOrder(user,req.body)
-        console.log("Created Order:", createdOrder);
+       
         return res.status(200).send(createdOrder)
         
     } catch (error) {

@@ -11,6 +11,7 @@ module.exports.register=async(req,res)=>{
             return res.status(400).json({errors:errors.array()});
         }
         const user=await userService.createdUser(req.body);
+       
         const jwt=jwtProvider.generateToken(user._id);
 
         await cartService.createCart(user)

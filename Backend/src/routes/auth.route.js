@@ -11,7 +11,6 @@ router.post('/register', [
     body('lastname').isLength({ min: 3 }).withMessage('Lastname must be at least 2 characters'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
    
-    
 ], (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

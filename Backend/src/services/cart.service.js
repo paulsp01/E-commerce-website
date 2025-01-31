@@ -65,9 +65,9 @@ module.exports.addCartItem=async (userId,req)=>{
       //const createdCartItem=await cartItem.save()
       cart.cartItem.push(cartItem)
       await cart.save()
-      return "item added to cart"
+      return cartItem
     }
-
+    return isPresent
 
     
   } catch (error) {
