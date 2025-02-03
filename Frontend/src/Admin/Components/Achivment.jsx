@@ -18,7 +18,7 @@ const TrophyImg=styled("img")({
 
 const Achivment = () => {
   return (
-    <Card  sx={{position:"relative"}}>
+    <Card  sx={{position:"relative" ,bgcolor:"#190d2b",color:"white"}}>
         <CardContent>
             <Typography variant='h6' sx={{letterSpacing:".25px"}}>
                 Shop With Zosh

@@ -20,8 +20,8 @@ const menu=[
     {name:"Products",path:"/admin/products ",icon:<ProductionQuantityLimitsIcon/>},
     {name:"Customers",path:"/admin/customers ",icon:<FaceIcon/>},
     {name:"Orders",path:"/admin/orders ",icon:<QrCodeScannerIcon/>},
-    {name:"AddProducts",path:"admin/product/create ",icon:<AddShoppingCartIcon/>},
-    {name:"",path:" "},
+    {name:"AddProducts",path:"/admin/product/create ",icon:<AddShoppingCartIcon/>},
+    
 ]
 const Admin = () => {
   const theme=useTheme()
@@ -68,15 +68,15 @@ const Admin = () => {
     </Box>
   )
   return (
-    <div>
-      <div className='flex h-[100vh] '>
+    
+      <div className='relative flex h-[100vh] '>
         <CssBaseline/>
-        <div className='w-[15%] border border-r-gray-300 h-full' >
+        <div className='w-[15%] border border-r-gray-300 h-full fixed top-0' >
         {drawer}
       </div>
 
 
-      <div className='w-full'>
+      <div className='w-full h-full ml-[15%]'>
 
         <Routes>
           <Route  path='/' element={<Dashboard/>} />
@@ -88,7 +88,7 @@ const Admin = () => {
       </div>
 
       </div>
-    </div>
+   
   )
 }
 
