@@ -108,7 +108,7 @@ useEffect(() => {
     minDiscount:discount || 0,
     sort:sortValue || "price_low",
     pageNumber:pageNumber ,
-    pageSize:6,
+    pageSize:9,
     stock:stock
   }
   
