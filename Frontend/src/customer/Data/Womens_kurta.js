@@ -7,8 +7,28 @@ export const kurtaPage1=[
         "selling_price": "₹699",
         "price": "₹2,899",
         "disscount": "75% off",
-        "size": ""
+        "size": [
+            {
+                "name": "S",
+                "quantity": 20
+            },
+            {
+                "name": "M",
+                "quantity": 30
+            },
+            {
+                "name": "L",
+                "quantity": 50
+            }
+        ],
+        "quantity": 100,
+        "topLevelCategory": "Women",
+        "secondLevelCategory": "Clothing",
+        "thirdLevelCategory": "women_dress",
+        "description": "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
+    
     },
+
     {
         "image": "https://rukminim1.flixcart.com/image/612/612/xif0q/ethnic-set/2/l/r/l-6909-blue-libas-original-imafygzxftqzszfx-bb.jpeg?q=70",
         "brand": "LIBAS",

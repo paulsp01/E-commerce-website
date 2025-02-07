@@ -29,9 +29,9 @@ export  const navigation = {
              
              
              
-              { name: 'Gouns', id: 'gouns' },
-              { name: 'Sarees', id: 'saree' },
-              { name: 'Kurtas', id: 'kurtas' },
+              // { name: 'Gouns', id: 'gouns' },
+              // { name: 'Sarees', id: 'saree' },
+              // { name: 'Kurtas', id: 'kurtas' },
             ],
           },
           {
@@ -116,7 +116,7 @@ export  const navigation = {
       },
     ],
     pages: [
-      { name: 'Company', id: '/' },
-      { name: 'Stores', id: '/' },
+      // { name: 'Company', id: '/' },
+      // { name: 'Stores', id: '/' },
     ],
   }

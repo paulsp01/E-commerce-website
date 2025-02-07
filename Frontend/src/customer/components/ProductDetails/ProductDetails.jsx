@@ -143,7 +143,7 @@ const ProductDetails = () => {
               />
             </div>
             <div className="flex flex-wrap space-x-5 justify-center">
-              {product.images.map((image) => (
+              {/* {product.images.map((image) => (
                 <div className="mt-4 aspect-h-2 aspect-w-2 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem]">
                   <img
                     alt={image.alt}
@@ -151,7 +151,7 @@ const ProductDetails = () => {
                     className=" w-full h-full rounded-lg object-cover object-center"
                   />
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
 

@@ -9,12 +9,17 @@ import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import { deleteProduct, findProducts } from '../../State/Product/Action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Avatar, Button, Card, CardHeader } from '@mui/material';
+import { Avatar, Button, Card, CardHeader, Stack, Typography } from '@mui/material';
+
+import Pagination from '@mui/material/Pagination';
 
 const ProductsTable = () => {
   const dispatch = useDispatch();
   const { products } = useSelector(store => store);
-
+ 
+  const [pageNumber, setPageNumber] = React.useState(1);
+  const pageSize = 10;
+  
 
 
   const handleProductDelete= (productId) => {
@@ -30,12 +35,16 @@ const ProductsTable = () => {
       maxPrice: 10000000,
       minDiscount: 0,
       sort: "price_low",
-      pageNumber: 1,
-      pageSize: 500,
+      pageNumber: pageNumber,
+      pageSize: pageSize,
       stock: ""
     };
     dispatch(findProducts(data));
-  }, [dispatch]);
+  }, [dispatch,pageNumber]);
+
+  const handlePageChange = (event, newPage) => {
+    setPageNumber(newPage);
+  };
 
   return (
     <div className='p-5'>
@@ -80,6 +89,21 @@ const ProductsTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Stack direction="row" alignItems="center" justifyContent="center" sx={{ mt: 2  }}>
+ 
+  <Pagination
+    count={Math.ceil(products?.products?.totalPages )} // Total pages
+    page={pageNumber}
+    onChange={handlePageChange}
+    color="primary"
+    variant="outlined"
+    shape="rounded"
+    sx={{
+      "& .MuiPaginationItem-root": { color: "black", borderColor: "black" }, // black text and border
+      "& .Mui-selected": { backgroundColor: "#673ab7", color: "black" }, // Highlight selected page
+    }}
+  />
+</Stack>
 
       </Card>
      
