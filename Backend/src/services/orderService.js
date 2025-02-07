@@ -5,8 +5,6 @@ const orderModel = require("../models/order.model");
 
 module.exports.createOrder = async (user, shippingAddress) => {
   let address;
- 
-
   try {
     let existingAddress = await addressModel
       .findOne({
@@ -22,24 +20,20 @@ module.exports.createOrder = async (user, shippingAddress) => {
       .lean();
 
     if (existingAddress) {
-     
       address = existingAddress;
     } else {
       const newAdd = new addressModel(shippingAddress);
       newAdd.user = user;
       await newAdd.save();
-      
       address = newAdd;
       user.address.push(newAdd._id);
       await user.save();
     }
-   
+
     const cart = await cartService.findUserCart(user._id);
-    
     const orderItems = [];
 
     for (let item of cart.cartItem) {
-     
       const orderItem = await orderItemModel.create({
         price: item.price,
         product: item.product,
@@ -49,22 +43,21 @@ module.exports.createOrder = async (user, shippingAddress) => {
         discountedPrice: item.discountedPrice,
       });
 
-     
+      // Populate product field
+      await orderItem.populate('product');
       orderItems.push(orderItem);
     }
-   
 
     const createdOrder = await orderModel.create({
       user,
       orderItems,
       totalPrice: cart.totalPrice,
-
       totalDiscountedPrice: cart.totalDiscountedPrice,
       discount: cart.discount,
       totalItem: cart.totalItem,
       shippingAddress: address,
     });
-    
+
     return createdOrder;
   } catch (error) {
     console.error("Error in createOrder:", error);
@@ -108,8 +101,9 @@ module.exports.cancelOrder = async (orderId) => {
 
 module.exports.usersOrderHistory = async (userId) => {
   try {
+   
     const orders = await orderModel
-      .find({ user: userId, orderStatus: "PLACED" })
+      .find({ user: userId, orderStatus: { $in: ["PLACED", "SHIPPED", "CONFIRMED","DELIVERED"] } })
       .populate({ path: "orderItems", populate: { path: "product" } })
       .lean();
 
@@ -121,10 +115,23 @@ module.exports.usersOrderHistory = async (userId) => {
 
 module.exports.getAllOrders = async () => {
   try {
-    return await orderModel
+    const orders = await orderModel
       .find()
-      .populate({ path: "orderItems", populate: { path: "product" } })
+      .populate({
+      path: "orderItems",
+      populate: {
+        path: "product",
+        model: "products",
+        populate: {
+        path: "category",
+        model: "categories",
+        },
+      },
+      })
+      .populate("user").populate("shippingAddress")
       .lean();
+    
+    return orders;
   } catch (error) {
     throw new Error(error.message);
   }

@@ -23,7 +23,7 @@ module.exports.createdUser = async (userData) => {
       lastname,
       email,
       password: hashPassword,
-      phone
+  
     });
 
     return user;

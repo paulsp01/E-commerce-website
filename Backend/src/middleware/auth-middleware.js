@@ -11,6 +11,7 @@ module.exports.authenticate=async (req,res,next) => {
         const userId=jwtProvider.getUserIdFromToken(token);
         const user=await userService.findUserById(userId);
         req.user=user;
+       
         
       
         

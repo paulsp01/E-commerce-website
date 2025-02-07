@@ -4,9 +4,10 @@ const orderService = require("./orderService");
 module.exports.createPaymentLink = async (orderId) => {
   try {
     const order = await orderService.findOrderById(orderId);
+   
     
     const paymentLinReq = {
-      amount: order.totalPrice * 100,
+      amount: order.totalDiscountedPrice * 100,
       currency: "INR",
       customer: {
         name: order.user.firstname + " " + order.user.lastname,
