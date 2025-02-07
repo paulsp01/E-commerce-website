@@ -20,17 +20,20 @@ const getUserFailure=(error)=>({type:GET_USER_FAILURE,payload:error})
 
 export const register=(userData)=>async (dispatch)=>{
     dispatch(registerRequest())
-try {
-    const response=await axios.post(`${API_BASE_URL}/auth/register`,userData)
-    const user=response.data;
-    if(user.jwt){
-        localStorage.setItem("jwt",user.jwt)
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/register`, userData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const user = response.data;
+        if (user.jwt) {
+            localStorage.setItem("jwt", user.jwt);
+        }
+        dispatch(registerSuccess(user.jwt));
+    } catch (error) {
+        dispatch(registerFailure(error.message));
     }
-  
-    dispatch(registerSuccess(user.jwt))
-} catch (error) {
-    dispatch(registerFailure(error.message))
-}
 }
 
 

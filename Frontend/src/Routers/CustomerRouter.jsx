@@ -10,9 +10,7 @@ import CheckOutPage from '../customer/pages/CheckoutPage/CheckOutPage'
 import OrderPage from '../customer/pages/Orderpage/OrderPage'
 import OrderDetailsPage from '../customer/pages/Orderpage/OrderDetailsPage'
 import PaymentSucessPage from '../customer/pages/Paymentpage/PaymentSucessPage'
-
-
-
+import PrivateRoute from '../components/PrivateRoute';
 
 const CustomerRouter = () => {
     return (
@@ -23,20 +21,15 @@ const CustomerRouter = () => {
              {/* customer routes */}
            <Route path='/' element={<Home/>}/>
            <Route path='/:levelOne/:levelTwo/:levelThree' element={<ProducPage/>}/>
-           <Route path='/product/:productId' element={<ProductDetailsPage/>}/>
-           <Route path='/cart' element={<CartPage/>}/>
-           <Route path='/checkout' element={<CheckOutPage/>}/>
-           <Route path='/account/order' element={<OrderPage/>}/>
-           <Route path='/account/order/:orderId' element={<OrderDetailsPage/>}/>
+           <Route path='/product/:productId' element={<PrivateRoute element={ProductDetailsPage} />}/>
+           <Route path='/cart' element={<PrivateRoute element={CartPage} />}/>
+           <Route path='/checkout' element={<PrivateRoute element={CheckOutPage} />}/>
+           <Route path='/account/order' element={<PrivateRoute element={OrderPage} />}/>
+           <Route path='/account/order/:orderId' element={<PrivateRoute element={OrderDetailsPage} />}/>
            <Route path='/login' element={<Home/>}/>
            <Route path='/register' element={<Home/>}/>
-           <Route path='/payment/:orderId' element={<PaymentSucessPage/>}/>
-     
-     
-     
-           
+           <Route path='/payment/:orderId' element={<PrivateRoute element={PaymentSucessPage} />}/>
            </Routes>
-           
          </div>
          <Footer/>
         </div>

@@ -722,6 +722,8 @@ export const mens_kurta=[
           "thirdLevelCategory": "mens_kurta",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
+
+    //stop
     {
         "imageUrl": "https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/t/g/w/xxl-ae08sk42-blue-aew-designs-original-imagg8npatfky9wg.jpeg?q=70",
         "brand": "ARMAAN ETHNIC",

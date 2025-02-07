@@ -23,58 +23,30 @@ import {
   AvatarGroup,
 } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
-const OrdersTable = () => {
+const OrderTableView = () => {
   const [anchorEl, setAnchorEl] = React.useState([]);
   const open = Boolean(anchorEl);
-  const handleClick = (event,index) => {
-    const newAnchorElArray=[...anchorEl]
-    newAnchorElArray[index]=event.currentTarget
-    setAnchorEl(newAnchorElArray);
-   
-  };
-  const handleClose = (index) => {
-    const newAnchorElArray=[...anchorEl]
-    newAnchorElArray[index]=null
-    setAnchorEl(newAnchorElArray);
-  };
+ 
   const dispatch = useDispatch();
   const { adminOrder } = useSelector((store) => store);
 
   useEffect(() => {
-    console.log("dispatching here ");
     dispatch(getOrders());
-  }, [adminOrder.order, adminOrder.deleteOrder]);
-
+  }, [adminOrder.order,adminOrder.deleteOrders]);
   console.log("admin orders", adminOrder);
 
-  const handleShipped = (orderId) => {
-    dispatch(shipOrder(orderId));
-    handleClose();
-  };
+  
 
-  const handleConfirmed = (orderId) => {
-    dispatch(confirmOrder(orderId));
-    handleClose();
-  };
-
-  const handleDelivered = (orderId) => {
-    dispatch(deliverOrder(orderId));
-    handleClose();
-  };
-
-  const handleDelete = (orderId) => {
-    dispatch(deleteOrder(orderId));
-    handleClose();
-  };
+  
 
   return (
-    <div className="p-10">
+    <div className='shadow-lg shadow-black pb-5 border border-black'  >
       <Card sx={{ mt: 2 }}>
-        <CardHeader title="All Orders" />
-        <TableContainer sx={{}} component={Paper}></TableContainer>
+        <CardHeader title="Recent Orders" />
+
         <TableContainer sx={{}} component={Paper}>
           <Table
             sx={{ minWidth: 650, bgcolor: "#190d2b", color: "white" }}
@@ -87,9 +59,7 @@ const OrdersTable = () => {
                 <TableCell sx={{ color: "white" }} align="left">
                   Title
                 </TableCell>
-                <TableCell sx={{ color: "white" }} align="left">
-                  UserId
-                </TableCell>
+               
                 <TableCell sx={{ color: "white" }} align="left">
                   ProductId
                 </TableCell>
@@ -101,12 +71,12 @@ const OrdersTable = () => {
                 </TableCell>
 
                 <TableCell sx={{ color: "white" }} align="left">
-                  Edit/Status
+                  Status
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody sx={{ color: "white" }}>
-              {adminOrder?.orders?.map?.((item,index) => (
+              {adminOrder?.orders?.slice(0,3).map?.((item, index) => (
                 <TableRow
                   key={item._id}
                   sx={{
@@ -115,7 +85,9 @@ const OrdersTable = () => {
                   }}
                 >
                   <TableCell align="left">
-                   
+                    {/* <AvatarGroup sx={{justifyContent:"start", flexDirection: "column"}}>
+                    {item.orderItems.map((orderItem)=><Avatar src={orderItem?.product?.imageUrl} />)}
+                  </AvatarGroup> */}
 
                     <Grid container xs={6} sx={{ width: "fit-content" }}>
                       {item.orderItems.map((orderItem, index) => (
@@ -130,7 +102,10 @@ const OrdersTable = () => {
                       ))}
                     </Grid>
                   </TableCell>
-
+                  {/* <TableCell sx={{ color: "white" }} align="left" component="th" scope="row">
+                {item.orderItems.map((orderItem)=><p> {orderItem.product.category.name}</p>)}
+                 
+                </TableCell> */}
                   <TableCell
                     sx={{ color: "white" }}
                     align="left"
@@ -141,9 +116,7 @@ const OrdersTable = () => {
                       <p> {orderItem.product.title}</p>
                     ))}
                   </TableCell>
-                  <TableCell sx={{ color: "white" }} align="left">
-                    {item.user._id}
-                  </TableCell>
+                 
                   <TableCell sx={{ color: "white" }} align="left">
                     {" "}
                     {item.orderItems.map((orderItem) => (
@@ -159,19 +132,8 @@ const OrdersTable = () => {
                       <p>{orderItem?.quantity}</p>
                     ))}
                   </TableCell>
-                  <TableCell sx={{ color: "white" }} align="left">
-                    <Button
-                      sx={{
-                        color: "black",
-                        borderColor: "white",
-                        fontWeight: 500,
-                      }}
-                      id="basic-button"
-                      aria-controls={`basic-menu-${item._id}`}
-                      aria-haspopup="true"
-                      aria-expanded={Boolean(anchorEl[index])}
-                      onClick={(event)=>handleClick(event,index)}
-                    >
+                  <TableCell sx={{ color: "black" }} align="left">
+                   
                       <p
                         className={`${
                           item.orderStatus === "CONFIRMED"
@@ -188,33 +150,9 @@ const OrdersTable = () => {
                         {" "}
                         {item.orderStatus}{" "}
                       </p>
-                    </Button>
-                    <Menu
-                      id={`basic-menu-${item._id}`}
-                      anchorEl={anchorEl[index]}
-                      open={Boolean(anchorEl[index])}
-                      onClose={()=>handleClose(index)}
-                      MenuListProps={{
-                        "aria-labelledby": "basic-button",
-                      }}
-                    >
-                      <MenuItem onClick={() => handleConfirmed(item._id)}>
-                        Confirmed{" "}
-                      </MenuItem>
-                      <MenuItem onClick={() => handleShipped(item._id)}>
-                        Shipped{" "}
-                      </MenuItem>
-                      <MenuItem onClick={() => handleDelivered(item._id)}>
-                        Delivered{" "}
-                      </MenuItem>
-                    </Menu>
-                    <Button
-                      onClick={() => handleDelete(item._id)}
-                      variant="outlined"
-                      sx={{ color: "white", borderColor: "white", mt: 1 }}
-                    >
-                      Delete
-                    </Button>
+                   
+                    
+                    
                   </TableCell>
                 </TableRow>
               ))}
@@ -226,4 +164,4 @@ const OrdersTable = () => {
   );
 };
 
-export default OrdersTable;
+export default OrderTableView;

@@ -12,16 +12,34 @@ const steps = [
  'Delivered'
 ];
 
-const OrderTracker = ({activeStep}) => {
+const getStepIndex = (status) => {
+  switch (status) {
+    case 'PLACED':
+      return 1;
+    case 'CONFIRMED':
+      return 2;
+    case 'SHIPPED':
+      return 3;
+    case 'OUT_FOR_DELIVERY':
+      return 4;
+    case 'DELIVERED':
+      return 5;
+    default:
+      return 0;
+  }
+};
+
+const OrderTracker = ({ activeStep }) => {
+  const stepIndex = getStepIndex(activeStep);
+
   return (
     <div className='w-full flex justify-between items-center'>
       <div className='w-full'>
         <Box sx={{ width: '100%' }}>
           <Stepper 
-            activeStep={activeStep} 
+            activeStep={stepIndex} 
             alternativeLabel
             sx={{
-             
               '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
                 fill: 'white', // color for active step number
               },
@@ -41,11 +59,8 @@ const OrderTracker = ({activeStep}) => {
           </Stepper>
         </Box>
       </div>
-     
-
-
     </div>
-  )
-}
+  );
+};
 
-export default OrderTracker
+export default OrderTracker;

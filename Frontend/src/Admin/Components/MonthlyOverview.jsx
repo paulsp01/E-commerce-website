@@ -58,6 +58,7 @@ const renderState = () => {
 
 const MonthlyOverview = () => {
   return (
+    <div className='shadow-lg shadow-black pb-1'>
     <Card sx={{bgcolor:"#190d2b",color:"white"}}>
       <CardHeader title="Monthly Overview"
         action={
@@ -91,6 +92,7 @@ const MonthlyOverview = () => {
 
      </CardContent>
     </Card>
+    </div>
   );
 };
 

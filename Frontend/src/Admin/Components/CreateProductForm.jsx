@@ -17,7 +17,7 @@ const CreateProductForm = () => {
     color:"",
     discountedPrice:"",
     price:"",
-    discountParsent:"",
+    discountPersent:"",
     size:initialSizes,
     quantity:"",
     topLevelCategory:"",
@@ -88,7 +88,7 @@ const CreateProductForm = () => {
         <Grid item xs={12} sm={6}>
         <TextField
           fullWidth
-          label="brand"
+          label="Brand"
           name='brand'
           value={productData.brand}
           onChange={handleChange}
@@ -99,7 +99,20 @@ const CreateProductForm = () => {
         <Grid item xs={12} sm={6}>
         <TextField
           fullWidth
-          label="color"
+          label="Title"
+          name='title'
+          value={productData.title}
+          onChange={handleChange}
+          />
+
+        </Grid>
+
+        
+
+        <Grid item xs={12} sm={6}>
+        <TextField
+          fullWidth
+          label="Color"
           name='color'
           value={productData.color}
           onChange={handleChange}
@@ -111,7 +124,7 @@ const CreateProductForm = () => {
         <Grid item xs={12} sm={6}>
         <TextField
           fullWidth
-          label="quantity"
+          label="Quantity"
           name='quantity'
           value={productData.quantity}
           onChange={handleChange}
@@ -121,10 +134,10 @@ const CreateProductForm = () => {
         </Grid>
 
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
         <TextField
           fullWidth
-          label="price"
+          label="Price"
           name='price'
           value={productData.price}
           onChange={handleChange}
@@ -134,7 +147,7 @@ const CreateProductForm = () => {
         </Grid>
 
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
         <TextField
           fullWidth
           label="Discounted Price"
@@ -147,12 +160,12 @@ const CreateProductForm = () => {
         </Grid>
 
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
         <TextField
           fullWidth
           label="Discounted Percentage"
-          name='discountePersent'
-          value={productData.discountParsent}
+          name='discountPersent'
+          value={productData.discountPersent}
           onChange={handleChange}
           type='number'
           />
@@ -168,8 +181,8 @@ const CreateProductForm = () => {
             onChange={handleChange}
             label="Top Level Category"
             >
-              <MenuItem value="men">Men</MenuItem>
-              <MenuItem value="women">Women</MenuItem>
+              <MenuItem value="Men">Men</MenuItem>
+              <MenuItem value="Women">Women</MenuItem>
               <MenuItem value="kids">Kids</MenuItem>
 
 
@@ -184,13 +197,13 @@ const CreateProductForm = () => {
             <InputLabel>Top Level Category</InputLabel>
             <Select
             name='secondLevelCategory'
-            value={productData.topLevelCategory}
+            value={productData.secondLevelCategory}
             onChange={handleChange}
             label="Second Level Category"
             >
-              <MenuItem value="clothing">Clothing</MenuItem>
+              <MenuItem value="Clothing">Clothing</MenuItem>
               <MenuItem value="accessories">Accessories</MenuItem>
-              <MenuItem value="brands">Brands</MenuItem>
+              <MenuItem value="brand">Brands</MenuItem>
 
 
             </Select>
@@ -204,7 +217,7 @@ const CreateProductForm = () => {
             <InputLabel>Top Level Category</InputLabel>
             <Select
             name='thirdLevelCategory'
-            value={productData.topLevelCategory}
+            value={productData.thirdLevelCategory}
             onChange={handleChange}
             label="Third Level Category"
             >
@@ -212,6 +225,7 @@ const CreateProductForm = () => {
               <MenuItem value="women_dress">Dresses</MenuItem>
               <MenuItem value="t-shirts">T-Shirts</MenuItem>
               <MenuItem value="saree">Saree</MenuItem>
+              <MenuItem value="mens_kurta">Mens_kurta</MenuItem>
 
               <MenuItem value="lenga_choli">Lengha Choli</MenuItem>
 

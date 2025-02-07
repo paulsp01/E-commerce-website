@@ -20,7 +20,7 @@ export const customerProductReducer=(state=initialState,action)=>{
             return {...state,loading:false,error:null,products:action.payload}
         case FIND_PRODUCT_BY_ID_SUCCESS:
             return { ...state,loading:false,error:null,product:action.payload}
-        case CREATE_PRODUCT_REQUEST:
+        case CREATE_PRODUCT_SUCCESS:
            return { ...state, loading: false, error: null, products: { ...state.products, content: [...state.products.content, action.payload] } }
         case UPDATE_PRODUCT_SUCCESS:
             return {
@@ -30,7 +30,7 @@ export const customerProductReducer=(state=initialState,action)=>{
             products: {
                 ...state.products,
                 content: state.products.content.map(product =>
-                product.id === action.payload.id ? action.payload : product
+                product._id === action.payload._id ? action.payload : product
                 )
             }
             }

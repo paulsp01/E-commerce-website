@@ -18,6 +18,7 @@ const TrophyImg=styled("img")({
 
 const Achivment = () => {
   return (
+    <div className='shadow-lg shadow-black pb-1'>
     <Card  sx={{position:"relative" ,bgcolor:"#190d2b",color:"white"}}>
         <CardContent>
             <Typography variant='h6' sx={{letterSpacing:".25px"}}>
@@ -36,6 +37,7 @@ const Achivment = () => {
 
         </CardContent>
     </Card>
+    </div>
   )
 }
 

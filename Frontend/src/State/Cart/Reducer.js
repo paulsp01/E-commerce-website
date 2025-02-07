@@ -15,14 +15,26 @@ export const cartReducer=(state=initialState,action)=>{
             return {...state,loading:true,error:null}
        
         case ADD_ITEM_TO_CART_SUCCESS:
-            return {...state,loading:false,cartItems:[...state.cartItems,action.payload.cartItems]}
+            return {
+                ...state,
+                loading: false,
+                cart: {
+                    ...state.cart,
+                    cartItems: [...state.cart.cartItems, action.payload.cartItems]
+                }
+            }
         case ADD_ITEM_TO_CART_FAILURE:
            
             return { ...state,loading:false,error:action.payload}
         case GET_CART_REQUEST:
             return {...state,loading:true,error:null}
         case GET_CART_SUCCESS:
-            return {...state,cartItems:action.payload.cartItems,cart:action.payload,loading:false}
+            return {
+                ...state,
+                cart: action.payload,
+                cartItems: action.payload.cartItems,
+                loading: false
+            }
         case GET_CART_FAILURE:
             return {...state,error:action.payload,loading:false}
         case REMOVE_CART_ITEM_REQUEST:
