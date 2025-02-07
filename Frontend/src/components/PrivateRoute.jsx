@@ -8,8 +8,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
   const isAuthenticated = !!authToken; // Example authentication check
 
   useEffect(() => {
-    console.log('authToken:', authToken);
-    console.log('isAuthenticated:', isAuthenticated);
+   
     if (!isAuthenticated) {
       setShowPopup(true);
     } else {

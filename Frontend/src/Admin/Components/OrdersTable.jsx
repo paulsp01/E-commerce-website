@@ -44,11 +44,11 @@ const OrdersTable = () => {
   const { adminOrder } = useSelector((store) => store);
 
   useEffect(() => {
-    console.log("dispatching here ");
+  
     dispatch(getOrders());
   }, [adminOrder.order, adminOrder.deleteOrder]);
 
-  console.log("admin orders", adminOrder);
+  
 
   const handleShipped = (orderId) => {
     dispatch(shipOrder(orderId));

@@ -11,7 +11,6 @@ const navigate=useNavigate()
 const dispatch=useDispatch()
 const {cart}=useSelector(store=>store)
 
-console.log("cart from cart.jsx",cart)
 
 useEffect(() => {
   dispatch(getCart())

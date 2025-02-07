@@ -36,7 +36,7 @@ const OrderTableView = () => {
   useEffect(() => {
     dispatch(getOrders());
   }, [adminOrder.order,adminOrder.deleteOrders]);
-  console.log("admin orders", adminOrder);
+
 
   
 

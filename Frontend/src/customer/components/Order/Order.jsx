@@ -14,7 +14,7 @@ const orderStatus = [
 const Order = () => {
   const dispatch = useDispatch();
   const { orders, loading, error } = useSelector(state => state.order);
-  console.log("orders", orders); // Check if orders are being fetched
+ 
 
   useEffect(() => {
     dispatch(getOrderHistory());

@@ -14,7 +14,7 @@ import { Avatar, Button, Card, CardHeader } from '@mui/material';
 const ProductsTable = () => {
   const dispatch = useDispatch();
   const { products } = useSelector(store => store);
-  console.log("products", products);
+
 
 
   const handleProductDelete= (productId) => {

@@ -14,10 +14,10 @@ import { getOrders } from '../../State/Admin/Order/Action';
 const CustomerTable = () => {
   const dispatch = useDispatch();
   const { adminOrder } = useSelector(store => store);
-  console.log("adminOrder from customer", adminOrder);
+
 
   useEffect(() => {
-    console.log("dispatching here ");
+    
     dispatch(getOrders());
   }, [dispatch]);
 
