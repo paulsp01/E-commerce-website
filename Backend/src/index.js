@@ -28,11 +28,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(
   cors({
-      origin:[
-         "http://localhost:5173",
-         "https://e-commerce-website-6-jkju.onrender.com"
+      // origin:[
+      //    "http://localhost:5173",
+      //    "https://e-commerce-website-6-jkju.onrender.com"
 
-      ],
+      // ],
+      origin:"*",
       
       credentials: true, // Allows cookies, Authorization headers, etc.
      
