@@ -26,7 +26,10 @@ const paymentRouter=require("./routes/payment.route")
 connectDB()
 app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({
+    origin: 'https://localhost:5173', // Replace with your frontend domain
+    credentials: true,
+  }));
 
 app.get("/", (req, res) => {
     res.send("hello world");
