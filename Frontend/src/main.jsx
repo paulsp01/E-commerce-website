@@ -8,7 +8,7 @@ import { store } from './State/Store.js';
 import { HashRouter } from "react-router-dom";
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  
     <HashRouter>
     <Provider store={store}>
     <App />
@@ -18,5 +18,5 @@ createRoot(document.getElementById('root')).render(
     </HashRouter>
       
    
-  </StrictMode>
+ 
 );
