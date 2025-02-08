@@ -30,7 +30,7 @@ app.use(
   cors({
       origin:[
          "http://localhost:5173",
-         "https://e-commerce-website-6-jkju.onrender.com/"
+         "https://e-commerce-website-6-jkju.onrender.com"
 
       ],
       
