@@ -26,14 +26,15 @@ const paymentRouter=require("./routes/payment.route")
 connectDB()
 app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
-app.use(cors({
-    origin:
-       'https://localhost:5173',
+app.use(
+  cors({
+      origin: "http://localhost:5173",
       
-
-    
-    credentials: true,
-  }));
+      credentials: true, // Allows cookies, Authorization headers, etc.
+      methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
+      allowedHeaders: "Content-Type,Authorization",
+  })
+);
 
 app.get("/", (req, res) => {
     res.send("hello world");
