@@ -28,9 +28,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 
-app.get("/", (req, res)=>{
-    res.send("hello world")
-})
+
 
 app.use('/auth',authRouter)
 app.use('/user',userRouter)
