@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_BASE_URL="https://e-commerce-website-3-osbs.onrender.com"
+export const API_BASE_URL="https://e-commerce-website-5-ly75.onrender.com"
 const jwt=localStorage.getItem("jwt")
 
 
