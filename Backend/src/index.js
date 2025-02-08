@@ -27,7 +27,11 @@ connectDB()
 app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(cors({
-    origin: 'https://localhost:5173', // Replace with your frontend domain
+    origin:[
+       'https://localhost:5173',
+       "https://e-commerce-website-a9wv-mtyd6rxmx-swarnalee-pauls-projects.vercel.app"
+
+    ], // Replace with your frontend domain
     credentials: true,
   }));
 
