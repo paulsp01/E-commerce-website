@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 2000, 
+    outDir: 'dist',
   },
   server: {
     host: '0.0.0.0',
@@ -12,4 +13,5 @@ export default defineConfig({
    
    
   },
+  base: "/",
 })
