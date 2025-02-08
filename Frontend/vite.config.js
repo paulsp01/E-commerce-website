@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    strictPort: true,
-    allowedHosts: ['e-commerce-website-4-rjrb.onrender.com'], // Add your Render domain
+   
+   
   },
 })
