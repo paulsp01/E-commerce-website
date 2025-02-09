@@ -33,11 +33,12 @@ app.use(
          "https://e-commerce-website-9bpm-nzrn7bmn6-swarnalee-pauls-projects.vercel.app"
 
       ],
-     
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
       
       credentials: true, // Allows cookies, Authorization headers, etc.
      
-      allowedHeaders: "Content-Type,Authorization",
+      allowedHeaders: ["Content-Type", "Authorization"],
+      optionsSuccessStatus: 200
   })
 );
 
