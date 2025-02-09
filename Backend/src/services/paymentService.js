@@ -19,7 +19,7 @@ module.exports.createPaymentLink = async (orderId) => {
         email: true,
       },
       reminder_enable: true,
-      callback_url: `https://e-commerce-website-79zu-4ouz2ivvu-swarnalee-pauls-projects.vercel.app/payment/${orderId}`,
+      callback_url: `https://e-commerce-website-9bpm-nzrn7bmn6-swarnalee-pauls-projects.vercel.app//payment/${orderId}`,
       callback_method: "get",
     };
    
