@@ -10,9 +10,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    historyApiFallback: true,
-   
-   
   },
-  base: "/",
-})
+  resolve: {
+    alias: {
+      '@': '/src', // Optional: Helps with cleaner imports
+    },
+  },
+  
+});

@@ -14,8 +14,9 @@ const App = () => {
   return (
   <div>
     <Routes>
+    <Route path="/admin/*" element={<AdminRouter/>}/>
       <Route path="/*" element={<CustomerRouter/>}/>
-      <Route path="/admin/*" element={<AdminRouter/>}/>
+     
     </Routes>
   </div>
   )
