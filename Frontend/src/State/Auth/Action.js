@@ -25,7 +25,7 @@ export const register=(userData)=>async (dispatch)=>{
             headers: {
                 'Content-Type': 'application/json'
             },
-            withCredentials: true,
+            
         });
         const user = response.data;
         if (user.jwt) {
