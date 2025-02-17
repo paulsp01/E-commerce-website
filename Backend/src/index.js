@@ -31,7 +31,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(
   cors({
-      origin:"https://e-commerce-website-16-0rv1.onrender.com",
+      origin:"https://e-commerce-website-od5p-7aw7idcwr-swarnalee-pauls-projects.vercel.app",
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       
       credentials: true, // Allows cookies, Authorization headers, etc.

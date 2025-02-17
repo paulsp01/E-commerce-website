@@ -19,7 +19,7 @@ module.exports.createPaymentLink = async (orderId) => {
         email: true,
       },
       reminder_enable: true,
-      callback_url: `https://e-commerce-website-16-0rv1.onrender.com/payment/${orderId}`,
+      callback_url: `https://e-commerce-website-od5p-7aw7idcwr-swarnalee-pauls-projects.vercel.app/payment/${orderId}`,
       callback_method: "get",
     };
    
