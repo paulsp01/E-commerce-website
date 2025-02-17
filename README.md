@@ -38,9 +38,11 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (758)](https://github.com/user-attachments/assets/98b8dff3-9e49-47d4-91c7-df3d70f0393d)
 ⚫Dashboard
 ![Screenshot (759)](https://github.com/user-attachments/assets/db8cde5f-e219-43a6-9bad-a3cd1ca440c4)
+⚫Products
 ![Screenshot (760)](https://github.com/user-attachments/assets/122f2eff-0ed3-4fd3-b9cc-3d2cd763df03)
-⚫product
+⚫Customers
 ![Screenshot (761)](https://github.com/user-attachments/assets/ceb125e7-4d4f-4bd9-beae-2ffcee2f4dcb)
+⚫Orders here you can edit order status placed to confirmed deliverd etc...
 ![Screenshot (762)](https://github.com/user-attachments/assets/a9ad12ff-b9a1-468a-b733-82d5ceb6b1cd)
 ![Screenshot (763)](https://github.com/user-attachments/assets/466446ec-bc5e-4519-ab91-1aa395addf93)
 ![Screenshot (764)](https://github.com/user-attachments/assets/b83cf2fe-47d6-4c07-a09b-6d1bf4c9bcd5)
