@@ -2,6 +2,7 @@ require('dotenv').config()
 const express=require('express')
 const cors=require('cors')
 const connectDB=require("./config/mongoose")
+const path=require("path")
 const app = express()
 const authRouter=require("./routes/auth.route")
 const userRouter=require("./routes/user.route")
@@ -28,11 +29,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(
   cors({
-      origin:[
-         "http://localhost:5173",
-         "https://e-commerce-website-an2kd7oti-swarnalee-pauls-projects.vercel.app"
-
-      ],
+      origin:"http://localhost:5173",
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       
       credentials: true, // Allows cookies, Authorization headers, etc.
@@ -58,6 +55,11 @@ app.use("/product",productRouter)
 app.use("/rating",ratingRouter)
 app.use("/review",reviewRouter)
 app.use("/payment",paymentRouter)
+
+app.use(express.static(path.join(__dirname,'public')));
+app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname, 'public', 'dist','index.html'));
+}) 
 
 
 module.exports = app
