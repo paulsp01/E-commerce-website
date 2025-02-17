@@ -27,11 +27,9 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (754)](https://github.com/user-attachments/assets/8879985f-c154-4632-bdd2-5c39ff1585db)
 ⚫Now you will redirect to payment success page
 ![Screenshot (755)](https://github.com/user-attachments/assets/7502eaf1-2c92-42b9-b8dc-b4360ef93e1b)
-
-
-
-
+⚫Click Avatar here you can see my orders and logout button click my orders you cann see this page clcik order card
 ![Screenshot (756)](https://github.com/user-attachments/assets/a2f7e00a-568f-492d-a386-b80aff22af3a)
+⚫after clicking order card you can see this page where you can check order and order status now order status is placed 
 ![Screenshot (757)](https://github.com/user-attachments/assets/c8c86ab4-977e-4a78-88fd-b057257036fa)
 ![Screenshot (758)](https://github.com/user-attachments/assets/98b8dff3-9e49-47d4-91c7-df3d70f0393d)
 ![Screenshot (759)](https://github.com/user-attachments/assets/db8cde5f-e219-43a6-9bad-a3cd1ca440c4)
