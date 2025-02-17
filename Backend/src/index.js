@@ -58,10 +58,10 @@ app.use("/review",reviewRouter)
 app.use("/payment",paymentRouter)
 
 
-app.use(express.static(path.join(__dirname,'../public')));
+app.use(express.static(path.join(__dirname,'../../Frontend')));
 app.get("*", (req, res) => {
   console.log(`Request received for: ${req.url}`);
-  const filePath = path.join(__dirname, "../public","dist", "index.html");
+  const filePath = path.join(__dirname, "../../Frontend","dist", "index.html");
   console.log(`Serving file: ${filePath}`);
   res.sendFile(filePath, (err) => {
       if (err) {
