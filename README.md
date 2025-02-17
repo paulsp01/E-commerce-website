@@ -48,6 +48,8 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (764)](https://github.com/user-attachments/assets/b83cf2fe-47d6-4c07-a09b-6d1bf4c9bcd5)
 ![Screenshot (765)](https://github.com/user-attachments/assets/ec96076e-7ec0-4903-bfbb-d4816d015b52)
 ![Screenshot (766)](https://github.com/user-attachments/assets/251d1338-5d44-4b20-b041-f874060c9757)
+⚫After changing order status you can see customer dashboard my orders pages also chagne status placed to delivered
 ![Screenshot (769)](https://github.com/user-attachments/assets/55f578d7-91cd-4874-aea5-9545781386f8)
+⚫You can Add products here
 ![Screenshot (767)](https://github.com/user-attachments/assets/66024261-de8b-4031-b177-55e179b9664d)
 ![Screenshot (768)](https://github.com/user-attachments/assets/7f47f0a5-46a8-4926-b6a2-ff49705b4527)
