@@ -30,7 +30,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(
   cors({
-      origin:"http://localhost:5173",
+      origin:"https://e-commerce-website-seven-mauve.vercel.app/",
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       
       credentials: true, // Allows cookies, Authorization headers, etc.
@@ -59,9 +59,18 @@ app.use("/payment",paymentRouter)
 
 
 app.use(express.static(path.join(__dirname,'../public/dist')));
-app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../public/dist','index.html'));
-}) 
+app.get("*", (req, res) => {
+  console.log(`Request received for: ${req.url}`);
+  const filePath = path.join(__dirname, "../public/dist", "index.html");
+  console.log(`Serving file: ${filePath}`);
+  res.sendFile(filePath, (err) => {
+      if (err) {
+          console.error("Error serving frontend:", err);
+          res.status(500).send("Internal Server Error");
+      }
+  });
+});
+
 
 
 module.exports = app
