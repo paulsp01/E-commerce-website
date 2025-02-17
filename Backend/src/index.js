@@ -4,6 +4,7 @@ const express=require('express')
 const cors=require('cors')
 const connectDB=require("./config/mongoose")
 const path=require("path")
+const fs = require('fs');
 const app = express()
 const authRouter=require("./routes/auth.route")
 const userRouter=require("./routes/user.route")
@@ -30,7 +31,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(
   cors({
-      origin:"https://e-commerce-website-seven-mauve.vercel.app/",
+      origin:"https://e-commerce-website-seven-mauve.vercel.app",
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       
       credentials: true, // Allows cookies, Authorization headers, etc.
@@ -41,6 +42,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
+  
     res.send("hello world");
 });
 
@@ -58,18 +60,8 @@ app.use("/review",reviewRouter)
 app.use("/payment",paymentRouter)
 
 
-app.use(express.static(path.join(__dirname,'../../Frontend')));
-app.get("*", (req, res) => {
-  console.log(`Request received for: ${req.url}`);
-  const filePath = path.join(__dirname, "../../Frontend","dist", "index.html");
-  console.log(`Serving file: ${filePath}`);
-  res.sendFile(filePath, (err) => {
-      if (err) {
-          console.error("Error serving frontend:", err);
-          res.status(500).send("Internal Server Error");
-      }
-  });
-});
+
+
 
 
 
