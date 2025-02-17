@@ -24,7 +24,8 @@ export const register=(userData)=>async (dispatch)=>{
         const response = await axios.post(`${API_BASE_URL}/auth/register`, userData, {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            withCredentials: true,
         });
         const user = response.data;
         if (user.jwt) {
