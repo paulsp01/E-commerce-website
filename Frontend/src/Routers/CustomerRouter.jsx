@@ -25,10 +25,10 @@ const CustomerRouter = () => {
            <Route path='/cart' element={<PrivateRoute element={CartPage} />}/>
            <Route path='/checkout' element={<PrivateRoute element={CheckOutPage} />}/>
            <Route path='/account/order' element={<PrivateRoute element={OrderPage} />}/>
-           <Route path='/account/order/:orderId' element={<PrivateRoute element={OrderDetailsPage} />}/>
+           <Route path='/account/order/:orderId' element={<OrderDetailsPage/>} />
            <Route path='/login' element={<Home/>}/>
            <Route path='/register' element={<Home/>}/>
-           <Route path='/payment/:orderId' element={<PrivateRoute element={PaymentSucessPage} />}/>
+           <Route path='/payment/:orderId' element={<PaymentSucessPage/>} />
            </Routes>
          </div>
          <Footer/>
