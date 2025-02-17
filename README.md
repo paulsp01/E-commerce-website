@@ -8,11 +8,11 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (744)](https://github.com/user-attachments/assets/f13570a7-e2d7-4a14-a029-b0b3b77bf8ce)
 ⚫here you can see multiple products
 ![Screenshot (745)](https://github.com/user-attachments/assets/51d4b18d-f4bc-4cfc-916c-788ba09f440b)
-⚫Choose any product and add to the cart
+⚫Choose any product and add to the cart Select size and click add to cart
 ![Screenshot (746)](https://github.com/user-attachments/assets/5b760ad7-a45b-4538-91d1-0d333c6f5af7)
-⚫Select size and click add to cart
+⚫click checkout
 ![Screenshot (747)](https://github.com/user-attachments/assets/a08aa555-4b0f-47cd-ac11-f4955df4115a)
-⚫Now you can see this page
+⚫Now you can see adrees page write adress name and click deliver here
 ![Screenshot (748)](https://github.com/user-attachments/assets/5b004809-a267-4d8b-b5d2-15098f906513)
 ⚫
 ![Screenshot (749)](https://github.com/user-attachments/assets/a8dcfb9f-b82b-49e3-8694-2864cbc5e901)
