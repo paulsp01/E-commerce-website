@@ -2,7 +2,7 @@
 
 Deployment Link: https://e-commerce-website-od5p.vercel.app
 
-Your E-Commerce Website project is a full-stack web application that enables users to browse, search, and purchase products online. It includes user authentication, product management, a shopping cart, and a secure checkout process.
+ E-Commerce Website project is a full-stack web application that enables users to browse, search, and purchase products online. It includes user authentication, product management, a shopping cart, and a secure checkout process.
 
 Frontend: Built with React.js, using Context API with Reducers for efficient state management.
 Backend: Developed with Node.js and MongoDB .
