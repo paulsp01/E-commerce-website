@@ -1,6 +1,6 @@
 const jwt =require('jsonwebtoken')
 const dotenv = require("dotenv");
-dotenv.config({path: '../Backend/.env'})
+dotenv.config()
 
 module.exports. generateToken=(userId) => {
     const token=jwt.sign({userId},process.env.JWT_KEY,{expiresIn:'24h'})

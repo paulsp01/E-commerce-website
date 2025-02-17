@@ -1,6 +1,6 @@
 const Razorpay = require('razorpay');
 const dotenv = require("dotenv");
-dotenv.config({path: '../Backend/.env'})
+dotenv.config()
 
 
 const razorpay = new Razorpay({

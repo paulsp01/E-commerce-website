@@ -1,6 +1,8 @@
-const app=require("./index");
 const dotenv = require("dotenv");
-dotenv.config({path: './Backend/.env'})
+dotenv.config()
+
+
+const app=require("./index");
 
 
 app.listen(process.env.PORT, function() {
