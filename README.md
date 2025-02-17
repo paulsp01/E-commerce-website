@@ -31,9 +31,15 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (756)](https://github.com/user-attachments/assets/a2f7e00a-568f-492d-a386-b80aff22af3a)
 ⚫after clicking order card you can see this page where you can check order and order status now order status is placed 
 ![Screenshot (757)](https://github.com/user-attachments/assets/c8c86ab4-977e-4a78-88fd-b057257036fa)
+
+----Admin Panel----
+
+⚫Now by ***/admin*** you can go to admin panel  https://e-commerce-website-od5p.vercel.app/admin
 ![Screenshot (758)](https://github.com/user-attachments/assets/98b8dff3-9e49-47d4-91c7-df3d70f0393d)
+⚫Dashboard
 ![Screenshot (759)](https://github.com/user-attachments/assets/db8cde5f-e219-43a6-9bad-a3cd1ca440c4)
 ![Screenshot (760)](https://github.com/user-attachments/assets/122f2eff-0ed3-4fd3-b9cc-3d2cd763df03)
+⚫product
 ![Screenshot (761)](https://github.com/user-attachments/assets/ceb125e7-4d4f-4bd9-beae-2ffcee2f4dcb)
 ![Screenshot (762)](https://github.com/user-attachments/assets/a9ad12ff-b9a1-468a-b733-82d5ceb6b1cd)
 ![Screenshot (763)](https://github.com/user-attachments/assets/466446ec-bc5e-4519-ab91-1aa395addf93)
