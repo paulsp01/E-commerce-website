@@ -4,11 +4,11 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 
 ⚫You can register or login by clicking SIGNIN button
 ![Screenshot (743)](https://github.com/user-attachments/assets/391e1f2d-6f5b-44b5-a41d-bed7133f76bf)
-⚫
+⚫You can select category category are exist in women clothing and men clothing
 ![Screenshot (744)](https://github.com/user-attachments/assets/f13570a7-e2d7-4a14-a029-b0b3b77bf8ce)
-⚫
+⚫here you can see multiple products
 ![Screenshot (745)](https://github.com/user-attachments/assets/51d4b18d-f4bc-4cfc-916c-788ba09f440b)
-⚫
+⚫Choose any product and add to the cart
 ![Screenshot (746)](https://github.com/user-attachments/assets/5b760ad7-a45b-4538-91d1-0d333c6f5af7)
 ⚫
 ![Screenshot (747)](https://github.com/user-attachments/assets/a08aa555-4b0f-47cd-ac11-f4955df4115a)
