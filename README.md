@@ -2,13 +2,21 @@
 
 Deployment Link: https://e-commerce-website-od5p.vercel.app
 
+⚫You can register or login by clicking SIGNIN button
 ![Screenshot (743)](https://github.com/user-attachments/assets/391e1f2d-6f5b-44b5-a41d-bed7133f76bf)
+⚫
 ![Screenshot (744)](https://github.com/user-attachments/assets/f13570a7-e2d7-4a14-a029-b0b3b77bf8ce)
+⚫
 ![Screenshot (745)](https://github.com/user-attachments/assets/51d4b18d-f4bc-4cfc-916c-788ba09f440b)
+⚫
 ![Screenshot (746)](https://github.com/user-attachments/assets/5b760ad7-a45b-4538-91d1-0d333c6f5af7)
+⚫
 ![Screenshot (747)](https://github.com/user-attachments/assets/a08aa555-4b0f-47cd-ac11-f4955df4115a)
+⚫
 ![Screenshot (748)](https://github.com/user-attachments/assets/5b004809-a267-4d8b-b5d2-15098f906513)
+⚫
 ![Screenshot (749)](https://github.com/user-attachments/assets/a8dcfb9f-b82b-49e3-8694-2864cbc5e901)
+⚫
 ![Screenshot (750)](https://github.com/user-attachments/assets/bb2df37d-25d2-4c7f-91f0-7d4d42c1024e)
 ![Screenshot (751)](https://github.com/user-attachments/assets/9511d287-c59f-4bc1-aea3-0870fba9fa22)
 ![Screenshot (752)](https://github.com/user-attachments/assets/e5604d25-ddb8-46d3-8089-582afca2f68e)
