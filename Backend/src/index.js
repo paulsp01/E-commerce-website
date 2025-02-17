@@ -57,9 +57,9 @@ app.use("/rating",ratingRouter)
 app.use("/review",reviewRouter)
 app.use("/payment",paymentRouter)
 
-app.use(express.static(path.join(__dirname,'./public')));
+app.use(express.static(path.join(__dirname,'../public/dist')));
 app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname, './public', 'dist','index.html'));
+    res.sendFile(path.resolve(__dirname, '../public/dist','index.html'));
 }) 
 
 
