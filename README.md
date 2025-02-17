@@ -25,7 +25,12 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ⚫4111 1111 1111 card number for test
 ![Screenshot (753)](https://github.com/user-attachments/assets/162668c7-4d6b-4c65-8da3-a3eeb3a64d56)
 ![Screenshot (754)](https://github.com/user-attachments/assets/8879985f-c154-4632-bdd2-5c39ff1585db)
+⚫Now you will redirect to payment success page
 ![Screenshot (755)](https://github.com/user-attachments/assets/7502eaf1-2c92-42b9-b8dc-b4360ef93e1b)
+
+
+
+
 ![Screenshot (756)](https://github.com/user-attachments/assets/a2f7e00a-568f-492d-a386-b80aff22af3a)
 ![Screenshot (757)](https://github.com/user-attachments/assets/c8c86ab4-977e-4a78-88fd-b057257036fa)
 ![Screenshot (758)](https://github.com/user-attachments/assets/98b8dff3-9e49-47d4-91c7-df3d70f0393d)
