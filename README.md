@@ -14,12 +14,15 @@ Deployment Link: https://e-commerce-website-od5p.vercel.app
 ![Screenshot (747)](https://github.com/user-attachments/assets/a08aa555-4b0f-47cd-ac11-f4955df4115a)
 ⚫Now you can see adrees page write adress name and click deliver here
 ![Screenshot (748)](https://github.com/user-attachments/assets/5b004809-a267-4d8b-b5d2-15098f906513)
-⚫
+⚫You can see this page
 ![Screenshot (749)](https://github.com/user-attachments/assets/a8dcfb9f-b82b-49e3-8694-2864cbc5e901)
-⚫
+⚫click checkout
 ![Screenshot (750)](https://github.com/user-attachments/assets/bb2df37d-25d2-4c7f-91f0-7d4d42c1024e)
+⚫You are navigate to razor pay payment gateway
 ![Screenshot (751)](https://github.com/user-attachments/assets/9511d287-c59f-4bc1-aea3-0870fba9fa22)
+⚫enter card details
 ![Screenshot (752)](https://github.com/user-attachments/assets/e5604d25-ddb8-46d3-8089-582afca2f68e)
+⚫4111 1111 1111 card number for test
 ![Screenshot (753)](https://github.com/user-attachments/assets/162668c7-4d6b-4c65-8da3-a3eeb3a64d56)
 ![Screenshot (754)](https://github.com/user-attachments/assets/8879985f-c154-4632-bdd2-5c39ff1585db)
 ![Screenshot (755)](https://github.com/user-attachments/assets/7502eaf1-2c92-42b9-b8dc-b4360ef93e1b)
