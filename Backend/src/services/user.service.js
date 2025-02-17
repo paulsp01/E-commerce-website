@@ -1,5 +1,5 @@
 const userModel = require('../models/user.model');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwtProvider = require("../config/jwtProvider");
 
 module.exports.createdUser = async (userData) => {

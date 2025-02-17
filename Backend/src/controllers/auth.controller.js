@@ -2,7 +2,7 @@ const userService=require("../services/user.service");
 const jwtProvider=require("../config/jwtProvider");
 const {validationResult}=require('express-validator');
 const cartService=require("../services/cart.service");
-const bcrypt=require("bcrypt");
+const bcrypt=require("bcryptjs");
 
 module.exports.register=async(req,res)=>{
     try {
