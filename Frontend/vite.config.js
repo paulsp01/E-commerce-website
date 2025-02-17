@@ -4,18 +4,18 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    chunkSizeWarningLimit: 2000, 
+    chunkSizeWarningLimit: 2000,
     outDir: 'dist',
-    assetsDir: 'assets', 
+    assetsDir: 'assets',
   },
-  base: './', 
+  base: '/', 
   server: {
     host: '0.0.0.0',
     port: 5173,
   },
   resolve: {
     alias: {
-      '@': '/src', 
+      '@': '/src',
     },
   },
 });
